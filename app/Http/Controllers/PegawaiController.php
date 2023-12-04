@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
 {
-	public function index()
+    public function index()
 	{
     	// mengambil data dari table pegawai
-		//$pegawai = DB::table('pegawai')->get();
-        $pegawai = DB::table('pegawai')->paginate(10);
+		$pegawai = DB::table('pegawai')
+                    ->orderBy('pegawai_nama', 'asc')
+                    ->paginate(10);
 
     	// mengirim data pegawai ke view index
 		return view('index',['pegawai' => $pegawai]);
@@ -53,6 +54,15 @@ class PegawaiController extends Controller
 
 	}
 
+    public function View($id)
+	{
+		// mengambil data pegawai berdasarkan id yang dipilih
+		$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+		// passing data pegawai yang didapat ke view edit.blade.php
+		return view('View',['pegawai' => $pegawai]);
+
+	}
+
 	// update data pegawai
 	public function update(Request $request)
 	{
@@ -78,17 +88,17 @@ class PegawaiController extends Controller
 	}
 
     public function cari(Request $request)
-	{
-		// menangkap data pencarian
-		$cari = $request->cari;
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
 
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$pegawai = DB::table('pegawai')
-                    ->orderBy('pegawai_nama', 'asc')
-                    ->paginate(10);
+         // mengambil data dari table pegawai sesuai pencarian data
+        $pegawai = DB::table('pegawai')
+        ->where('pegawai_nama','like',"%".$cari."%")
+        ->paginate();
 
-    		// mengirim data pegawai ke view index
-		return view('index',['pegawai' => $pegawai, 'cari' => $cari]);
+            // mengirim data pegawai ke view index
+        return view('index',['pegawai' => $pegawai, 'cari' => $cari]);
 
-	}
+    }
 }
