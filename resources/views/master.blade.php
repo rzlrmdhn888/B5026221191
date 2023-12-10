@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Rizal</a>
+  <a class="navbar-brand" href="#">Rizal Ramadhan - 5026221191</a>
 
   <!-- Links -->
   <ul class="navbar-nav">

@@ -54,12 +54,12 @@ class PegawaiController extends Controller
 
 	}
 
-    public function View($id)
+    public function view($id)
 	{
 		// mengambil data pegawai berdasarkan id yang dipilih
 		$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
 		// passing data pegawai yang didapat ke view edit.blade.php
-		return view('View',['pegawai' => $pegawai]);
+		return view('viewp',['pegawai' => $pegawai]);
 
 	}
 
@@ -99,6 +99,5 @@ class PegawaiController extends Controller
 
             // mengirim data pegawai ke view index
         return view('index',['pegawai' => $pegawai, 'cari' => $cari]);
-
     }
 }
