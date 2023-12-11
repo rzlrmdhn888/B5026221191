@@ -6,8 +6,6 @@
 
     <h3>Pilih Kategori</h3>
 
-    <br/>
-
     <form action="/kategori/lihat" method="post">
         @csrf
         <div class="form-group">
