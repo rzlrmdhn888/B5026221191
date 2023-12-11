@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <h3>Kategori</h3>
+    <h3>Pilih Kategori</h3>
 
     <br/>
 
