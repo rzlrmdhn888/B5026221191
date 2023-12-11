@@ -68,6 +68,6 @@ Route::get('/lampu/editlp/{id}','App\Http\Controllers\lampuController@edit');
 Route::post('/lampu/update','App\Http\Controllers\lampuController@update');
 Route::get('/lampu/hapus/{id}','App\Http\Controllers\lampuController@hapus');
 
-Route::get('/kategori', 'App\Http\Controllers\kategoriController@index');
-Route::post('/kategori/store','App\Http\Controllers\kategoriController@store');
-Route::get('/kategori/tambahkt','App\Http\Controllers\kategoriController@tambah');
+Route::get('/kategori','App\Http\Controllers\KategoriController@index');
+Route::get('/kategori/lihat/{Nama}','App\Http\Controllers\KategoriController@lihat');
+Route::post('/kategori/lihat','App\Http\Controllers\KategoriController@lihat');
